@@ -25,6 +25,7 @@ public class TableCreator {
             tableName = cl.getName().toUpperCase();
         }
 
+        // 假设每个函数上只有1个或0个注解
         List<String> columnDefs = new ArrayList<>();
         for (Field field : cl.getDeclaredFields()) {
             String columnName = null;
@@ -40,7 +41,7 @@ public class TableCreator {
                 } else {
                     columnName = sInt.name();
                 }
-                columnDefs.add(columnName + "INT" +
+                columnDefs.add(columnName + " INT" +
                         getConstraints(sInt.constraint()));
             }
 
